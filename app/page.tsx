@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import React from "react";
 const paragraphs = [
   "The quick brown fox jumps over the lazy dog.",
   "A journey of a thousand miles begins with a single step.",
@@ -73,11 +73,13 @@ const TypingSpeedGame = () => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [wordCount, setWordCount] = useState(0);
   const [targetWordCount, setTargetWordCount] = useState(0);
-  const [highlightedText, setHighlightedText] = useState<JSX.Element[]>([]);
-  const [errorAnalysis, setErrorAnalysis] = useState<JSX.Element>(<></>);
+  const [highlightedText, setHighlightedText] = useState<React.ReactElement[]>([]);
+  const [errorAnalysis, setErrorAnalysis] = useState<React.ReactElement>(<></>);
 
   useEffect(() => {
     selectRandomParagraph();
+    console.log(wordCount);
+    console.log(targetWordCount);
   }, []);
 
   const selectRandomParagraph = () => {
